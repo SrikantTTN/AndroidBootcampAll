@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.loginmodule.LoginManager;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
