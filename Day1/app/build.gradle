@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    flavorDimensions "version"
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.srikant.day1"
@@ -16,8 +17,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
+    productFlavors {
+        qa {
+            dimension "version"
+            applicationId "com.example.srikant.day1.qa"
+        }
 
+        prod {
+            dimension "version"
+            applicationId "com.example.srikant.day1.prod"
+
+        }
+
+        dev {
+            dimension "version"
+            applicationId "com.example.srikant.day1.dev"
+        }
+    }
+}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
