@@ -1,0 +1,11 @@
+*.iml
+/Day1/.gradle
+/Day1/local.properties
+/Day1/.idea/libraries
+/Day1/.idea/modules.xml
+/Day1/.idea/workspace.xml
+/Day1/.DS_Store
+/Day1/build
+/Day1/captures
+/Day1/.externalNativeBuild
+*.apk
