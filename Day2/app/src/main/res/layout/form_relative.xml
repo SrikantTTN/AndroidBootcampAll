@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/profilePic"
+        android:src="@drawable/ic_person_black_24dp"
+        android:layout_centerHorizontal="true"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profilePic"
+        android:hint="Username"
+        android:id="@+id/usernameET"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usernameET"
+        android:inputType="number"
+        android:hint="Mobile No"
+        android:id="@+id/mobileET"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mobileET"
+        android:hint="Email Id"
+        android:id="@+id/emailET"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailET"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:id="@+id/passwordET"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordET"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:id="@+id/cPasswordET"/>
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Remember Me"
+        android:id="@+id/rememberCheck"
+        android:layout_below="@id/cPasswordET"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Forgot Password"
+        android:textColor="#0704e9"
+        android:layout_below="@id/rememberCheck"
+        android:layout_alignBaseline="@id/login"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rememberCheck"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/login"
+        android:text="Login"/>
+</RelativeLayout>
