@@ -3,6 +3,28 @@ apply plugin: 'com.android.application'
 android {
     flavorDimensions "version"
     compileSdkVersion 27
+    signingConfigs {
+        qa {
+            storeFile file("qa-debug")
+            storePassword "123456"
+            keyAlias "key0"
+            keyPassword "123456"
+        }
+
+        dev {
+            storeFile file("dev")
+            storePassword "123456"
+            keyAlias "key0"
+            keyPassword "123456"
+        }
+        prod {
+            storeFile file("prod")
+            storePassword "123456"
+            keyAlias "key0"
+            keyPassword "123456"
+        }
+    }
+
     defaultConfig {
         applicationId "com.example.srikant.day1"
         minSdkVersion 17
@@ -21,17 +43,19 @@ android {
         qa {
             dimension "version"
             applicationId "com.example.srikant.day1.qa"
+            signingConfig signingConfigs.qa
         }
 
         prod {
             dimension "version"
             applicationId "com.example.srikant.day1.prod"
-
+            signingConfig signingConfigs.prod
         }
 
         dev {
             dimension "version"
             applicationId "com.example.srikant.day1.dev"
+            signingConfig signingConfigs.dev
         }
     }
 }
