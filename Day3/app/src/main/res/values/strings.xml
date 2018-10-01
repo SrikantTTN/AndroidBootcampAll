@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Day3</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="mobile_no">Mobile No</string>
+    <string name="email_id">Email Id</string>
 </resources>
