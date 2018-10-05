@@ -89,6 +89,10 @@ public class FilesActivity extends AppCompatActivity implements View.OnClickList
                 et.setText(data);
                 return ;
             case R.id.nextExercise:
+                Intent intent = new Intent();
+                intent.setClass(this,SqlActivity.class);
+                startActivity(intent);
+                return;
         }
     }
 
