@@ -68,6 +68,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 return;
             case R.id.nextExercise:
+                Intent intent = new Intent();
+                intent.setClass(this,FilesActivity.class);
+                startActivity(intent);
+                return;
             case R.id.clearSharedPref:
                 pref.edit().clear().apply();
                 return;

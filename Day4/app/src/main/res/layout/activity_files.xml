@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FilesActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:focusedByDefault="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_height="wrap_content"
+        android:hint="Type Anything"
+        android:layout_marginTop="24dp"
+        android:id="@+id/edittext"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview"
+        android:text="Hello World"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/edittext"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/writeInternalFile"
+        android:text="Write to internal file"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/holo_green_light"
+        android:padding="4dp"
+        app:layout_constraintTop_toBottomOf="@id/textview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/readInternalFile"
+        app:layout_constraintHorizontal_chainStyle="spread"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/readInternalFile"
+        android:layout_marginTop="24dp"
+        android:text="Read from internal file"
+        android:background="@android:color/holo_red_light"
+        android:padding="4dp"
+        app:layout_constraintTop_toBottomOf="@id/textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/writeInternalFile" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/writeExternalFile"
+        android:text="Write to external file"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/holo_green_light"
+        android:padding="4dp"
+        app:layout_constraintTop_toBottomOf="@id/writeInternalFile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/readExternalFile"
+        app:layout_constraintHorizontal_chainStyle="spread"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/readExternalFile"
+        android:layout_marginTop="24dp"
+        android:text="Read from external file"
+        android:background="@android:color/holo_red_light"
+        android:padding="4dp"
+        app:layout_constraintTop_toBottomOf="@id/writeInternalFile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/writeExternalFile" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="24dp"
+        android:text="Next Exercise->"
+        android:id="@+id/nextExercise"/>
+</android.support.constraint.ConstraintLayout>
