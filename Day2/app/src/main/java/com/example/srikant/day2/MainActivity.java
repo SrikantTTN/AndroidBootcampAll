@@ -4,10 +4,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
+
+public class MainActivity extends AppCompatActivity {
+    private String API_KEY = "931c3bc42e514664a683f74d003a5e69";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView rv = findViewById(R.id.recyclerView);
         LinearLayoutManager lm = new LinearLayoutManager(this);
         rv.setLayoutManager(lm);
-        NewsAdapter newsAdapter = new NewsAdapter(this);
+        final NewsAdapter newsAdapter = new NewsAdapter(this);
 
         rv.setAdapter(newsAdapter);
-        ArrayList<NewsModel> sendData = new ArrayList<NewsModel>();
+        final ArrayList<NewsModel> sendData = new ArrayList<NewsModel>();
         NewsModel n1 = new NewsModel();
         n1.setDatePosted("2018-09-27");
         n1.setDescription("U.S. aid to Taiwan, sanctions over China's Russian arms purchases provoke Beijing's anger");
@@ -60,16 +68,34 @@ public class MainActivity extends AppCompatActivity {
         n8.setDescription("Supreme Court nominee Brett M. Kavanaugh faces multiple allegations of sexual misconduct that have plunged his confirmation process into chaos. Kavanaugh, who strongly denies the allegations, will testify after Ford on Thursday.");
         n8.setMainImageUrl("https://www.washingtonpost.com/resizer/obx97kbnhm-aTlQBq6I8xHKKFUI=/1484x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/GDPFO3GBXAI6RFCR5B4PS27BTM.jpg");
         n8.setTitle("Kavanaugh hearing: Christine Blasey Ford gives Senate testimony about sexual assault allegation");
-        sendData.add(n1);
-        sendData.add(n2);
-        sendData.add(n3);
-        sendData.add(n4);
-        sendData.add(n5);
-        sendData.add(n6);
-        sendData.add(n7);
-        sendData.add(n8);
-        newsAdapter.addNews(sendData);
-        newsAdapter.notifyDataSetChanged();
+//        sendData.add(n1);
+//        sendData.add(n2);
+//        sendData.add(n3);
+//        sendData.add(n4);
+//        sendData.add(n5);
+//        sendData.add(n6);
+//        sendData.add(n7);
+//        sendData.add(n8);
+//        newsAdapter.addNews(sendData);
+//        newsAdapter.notifyDataSetChanged();
+
+        ApiInterface apiInterface = RetrofitClient.getClient().create(ApiInterface.class);
+        Call<ListModel> callList = apiInterface.getNewsList("google-news",API_KEY);
+        callList.enqueue(new Callback<ListModel>() {
+            @Override
+            public void onResponse(Call<ListModel> call, Response<ListModel> response) {
+                ListModel list = response.body();
+                sendData.addAll(list.articlesList);
+                newsAdapter.addNews(sendData);
+                newsAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<ListModel> call, Throwable t) {
+
+            }
+        });
+
     }
 
 }

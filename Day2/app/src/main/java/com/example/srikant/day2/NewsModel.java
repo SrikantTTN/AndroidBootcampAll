@@ -1,10 +1,16 @@
 package com.example.srikant.day2;
 
-public class NewsModel {
-        private String title;
-        private String publishedAt;
+import com.google.gson.annotations.SerializedName;
 
+public class NewsModel {
+        @SerializedName("title")
+        private String title;
+        @SerializedName("publishedAt")
+        private String publishedAt;
+        @SerializedName("urlToImage")
         private String mainImageUrl;
+        @SerializedName("description")
+        private String description;
 
     public String getTitle() {
         return title;
@@ -37,6 +43,5 @@ public class NewsModel {
     public void setDescription(String description) {
         this.description = description;
     }
-    private String description;
 }
 
