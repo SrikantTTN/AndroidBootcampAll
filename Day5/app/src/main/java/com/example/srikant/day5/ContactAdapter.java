@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -32,7 +33,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = View.inflate(mContext,R.layout.person_item,null);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.person_item,parent,false);
         return new ViewHolder(view,itemClickCallback);
     }
 
@@ -53,7 +54,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name;
         TextView number;
-        LinearLayout cl;
+        ConstraintLayout cl;
         recyclerItemClick callback;
         public ViewHolder(View itemView,recyclerItemClick recyclerItemClickListener) {
             super(itemView);
