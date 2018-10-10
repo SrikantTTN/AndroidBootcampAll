@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Day6</string>
+    <string name="channel_name">local</string>
+    <string name="channel_description">content of local</string>
+</resources>
